@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  start_time: 2016-12-12 14:35:37
+  finish_time: 2016-12-12 14:35:37
+  age_min: 1
+  age_max: 1
+  gender: MyString
+  where: MyString
+  details: MyText
+  title: MyString
+  group_max: 1
+  group_min: 1
+  language: MyString
+  link: MyText
+
+two:
+  user: two
+  start_time: 2016-12-12 14:35:37
+  finish_time: 2016-12-12 14:35:37
+  age_min: 1
+  age_max: 1
+  gender: MyString
+  where: MyString
+  details: MyText
+  title: MyString
+  group_max: 1
+  group_min: 1
+  language: MyString
+  link: MyText
