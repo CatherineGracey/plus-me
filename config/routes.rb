@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   post '/register', to: 'users#create'
   post '/login', to: 'users#login'
   delete '/logout', to: 'users#logout'
+  get '/profile', to: 'users#profile'
+  put '/update/:id', to 'users#update'
 end

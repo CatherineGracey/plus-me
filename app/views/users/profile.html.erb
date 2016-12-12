@@ -1,0 +1,11 @@
+<h2>Events you are organising</h2>
+
+<h2>Events you are attending</h2>
+
+<h2>Update Your Details</h2>
+<form action="/update/<%= @user.id %>" method="post">
+  <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
+  <input type="hidden" name="_method" value="put">
+</form>
+
+<h2>Settings</h2>
