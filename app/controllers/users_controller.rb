@@ -6,8 +6,12 @@ class UsersController < ApplicationController
   end
 
   def login
-    create_session
-    redirect_to '/profile'
+    @login_error = create_session
+    if @login_error
+      redirect_to '/'
+    else
+      redirect_to '/profile'
+    end
   end
 
   def logout
@@ -16,7 +20,6 @@ class UsersController < ApplicationController
   end
 
   def profile
-
   end
 
   def update

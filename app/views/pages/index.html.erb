@@ -1,4 +1,5 @@
-<h1>Plus Me</h1>
+<main>
+<%= render 'shared/header' %>
 <p>Plus Me aims to connect you to the people who are doing the things you want to do.</p>
 <ul>
   <li>Want to get a group discount on tickets, but you're a few people short?</li>
@@ -7,29 +8,26 @@
   <li>New in the area and you haven't met anyone yet?</li>
 </ul>
 <p>Register or log in now to create an event or find people who are already doing what you want to do.</p>
-<div>
-  <div>
-    <h2>Log In</h2>
-    <form action="/login" method="post">
-      <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
-      <label for="email-login">Email:</label>
-      <input type="email" name="email" id="email-login">
-      <label for="password-login">Your Password:</label>
-      <input type="password" name="password" id="password-login">
-    </form>
-  </div>
-  <div>
-    <h2>Register</h2>
-    <form action="/register" method="post">
-      <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
-      <label for="email-register">Email:</label>
-      <input type="email" name="email" id="email-register">
-      <label for="username-register">Username:</label>
-      <input type="text" name="username" id="username-register">
-      <label for="password-register">Your Password:</label>
-      <input type="password" name="password" id="password-register">
-      <label for="password-repeat">Confirm Your Password:</label>
-      <input type="password" name="password-repeat" id="password-repeat">
-    </form>
-  </div>
+<div class="row">
+  <form action="/login" method="post" class="column-2">
+    <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
+    <label for="email-login">Email:</label>
+    <input type="email" name="email" id="email-login">
+    <label for="password-login">Your Password:</label>
+    <input type="password" name="password" id="password-login">
+    <button class="big-btn">Log In</button>
+  </form>
+  <form action="/register" method="post" class="column-2">
+    <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
+    <label for="email-register">Email:</label>
+    <input type="email" name="email" id="email-register">
+    <label for="username-register">Username:</label>
+    <input type="text" name="username" id="username-register">
+    <label for="password-register">Your Password:</label>
+    <input type="password" name="password" id="password-register">
+    <label for="password-repeat">Confirm Your Password:</label>
+    <input type="password" name="password-repeat" id="password-repeat">
+    <button class="big-btn">Register</button>
+  </form>
 </div>
+</main>
