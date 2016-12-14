@@ -1,0 +1,10 @@
+<main>
+<h2>Find an Event</h2>
+<div class="banded">
+  <% @events.each do |event| %>
+    <p><a href="/events/<%= event.id%>">
+      <%= event.title %> hosted by <%= event.user.username %> on <%= event.start_time.day %> <%= event.start_time.month %> <%= event.start_time.year %>
+    </a></p>
+  <% end %>
+</div>
+</main>
