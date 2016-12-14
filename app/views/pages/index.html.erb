@@ -9,7 +9,7 @@
 </ul>
 <p>Register or log in now to create an event or find people who are already doing what you want to do.</p>
 <div class="row">
-  <form action="/login" method="post" class="column-2">
+  <form action="/login" method="post" class="column-2 visible">
     <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
     <label for="email-login">Email:</label>
     <input type="email" name="email" id="email-login">
@@ -17,7 +17,7 @@
     <input type="password" name="password" id="password-login">
     <button class="big-btn">Log In</button>
   </form>
-  <form action="/register" method="post" class="column-2">
+  <form action="/register" method="post" class="column-2 visible">
     <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
     <label for="email-register">Email:</label>
     <input type="email" name="email" id="email-register">

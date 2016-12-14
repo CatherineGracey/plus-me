@@ -34,7 +34,7 @@ header {
 .column-2 {
   width: 47.5%;
 }
-form {
+form.visible {
   padding: 1rem;
   background-color: rgba(255, 255, 255, .5);
 }
@@ -51,7 +51,7 @@ form input, form textarea, form select {
 .banded {
   border: 1px solid rgba(255, 255, 255, .2);
 }
-.banded p:nth-child(even) {
+.banded p:nth-child(odd) {
   background-color: rgba(255, 255, 255, .2);
   padding: .5rem 0;
   margin: 0;

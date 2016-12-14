@@ -1,0 +1,31 @@
+<main>
+<%= render 'shared/header' %>
+<h2><%= @event.title %></h2>
+<h3>Organised by: <%= @event.user.username %></h3>
+<p><%= @event.details %></p>
+<% if @event.user_id == session[:user_id] %>
+  <div class="row">
+  <a class="column-2" href="/events/<%= @event.id %>/edit"><button class="big-btn">Edit this event</button></a>
+  <form class="column-2" action="/events/<%= @event.id %>/delete" method="post">
+    <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
+    <input type="hidden" name="_method" value="delete">
+    <button class="big-btn">Cancel this event</button>
+  </form>
+<% else %>
+  <p><a href=""><button class="big-btn">Join This Event</button></a>
+<% end %>
+</main>
+
+t.string   "title"
+t.integer  "user_id"
+t.text     "details"
+t.datetime "start_time"
+t.datetime "finish_time"
+t.integer  "age_min"
+t.integer  "age_max"
+t.string   "gender"
+t.string   "where"
+t.integer  "group_max"
+t.integer  "group_min"
+t.string   "language"
+t.text     "link"

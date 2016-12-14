@@ -2,11 +2,11 @@
 <%= render 'shared/header' %>
 <% if @event.id %>
   <h2>Edit Your Event</h2>
-  <form action="/events/<%= @event.id %>" method="post">
+  <form action="/events/<%= @event.id %>" method="post" class="visible">
     <input type="hidden" name="_method" value="put">
 <% else %>
   <h2>Create an Event</h2>
-  <form action="/events" method="post">
+  <form action="/events" method="post" class="visible">
 <% end %>
   <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
   <label for="title" required>What is this event called?</label>

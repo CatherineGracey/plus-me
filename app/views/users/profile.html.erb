@@ -28,7 +28,7 @@
 <a href="/events">Find an Event</a>
 
 <h2>Update Your Details</h2>
-<form action="/users/<%= @user.id %>" method="post">
+<form action="/users/<%= @user.id %>" method="post" class="visible">
   <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
   <input type="hidden" name="_method" value="put">
   <label for="first_name">First Name:</label>
