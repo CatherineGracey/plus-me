@@ -8,5 +8,11 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#profile'
   put '/users/:id', to: 'users#update'
-  
+
+  get '/events/new', to: 'events#new'
+  post '/events', to: 'events#create'
+  get '/events', to: 'events#search'
+  get '/events/:id', to: 'events#show'
+  put '/events/:id', to: 'events#update'
+
 end

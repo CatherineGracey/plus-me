@@ -1,0 +1,50 @@
+<main>
+<%= render 'shared/header' %>
+<% if @event.id %>
+  <h2>Edit Your Event</h2>
+  <form action="/events/<%= @event.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+<% else %>
+  <h2>Create an Event</h2>
+  <form action="/events" method="post">
+<% end %>
+  <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
+  <label for="title" required>What is this event called?</label>
+  <input type="text" name="title" id="title" value="<%= @event.title %>">
+  <label for="details">Please provide a detailed description of this event.</label>
+  <textarea name="details" id="details"><%= @event.details %></textarea>
+  <label for="where" required>Where is the event located?</label>
+  <input type="text" name="where" id="where" value="<%= @event.where %>">
+  <label for="start_time" required>When does the event start?</label>
+  <input type="text" name="start_time" id="start_time" value="<%= @event.start_time %>">
+  <label for="finish_time">When is the event expected to finish?</label>
+  <input type="text" name="finish_time" id="finish_time" value="<%= @event.finish_time %>">
+  <label for="link">Is there a website people can visit for more information? For example a restaurant menu or concert details.</label>
+  <input type="url" name="link" id="link" value="<%= @event.link %>">
+  <label for="age_min">Is this event restricted to people over a certain age?</label>
+  <input type="number" name="age_min" id="age_min" value="<%= @event.age_min %>">
+  <label for="age_max">Is this event restricted to people under a certain age?</label>
+  <input type="number" name="age_max" id="age_max" value="<%= @event.age_max %>">
+  <label for="group_max">Do you need a minimum number of people for this event?</label>
+  <input type="number" name="group_max" id="group_max" value="<%= @event.group_max %>">
+  <label for="group_min">Is group size restricted for this event?</label>
+  <input type="text" name="group_min" id="group_min" value="<%= @event.group_min %>">
+  <label for="language">Will this event be in a particular language?</label>
+  <input type="text" name="language" id="language" value="<%= @event.language %>">
+  <label for="gender">Is this event restricted to people of a certain gender?</label>
+  <select name="gender" id="gender">
+    <option value="">Not restricted</option>
+    <% if @event.gender == "female" %>
+      <option value="female" selected>Female</option>
+    <% else %>
+      <option value="female">Female</option>
+    <% end %>
+    <% if @event.gender == "male" %>
+      <option value="male" selected>Male</option>
+    <% else %>
+      <option value="male">Male</option>
+    <% end %>
+  </select>
+  <button class="big-btn">Send the Invitation</button>
+</form>
+</main>

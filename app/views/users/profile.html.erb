@@ -15,6 +15,7 @@
     <p>You haven't planned any upcoming events yet.</p>
   <% end %>
 </div>
+<a href="/events/new">Create an Event</a>
 
 <h2>Events you are attending</h2>
 <div class="banded">
@@ -24,6 +25,7 @@
   <p>You haven't joined any upcoming events yet.</p>
 <% end %>
 </div>
+<a href="/events">Find an Event</a>
 
 <h2>Update Your Details</h2>
 <form action="/users/<%= @user.id %>" method="post">
