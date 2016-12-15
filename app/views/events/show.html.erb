@@ -3,12 +3,15 @@
 <h2><%= @event.title %></h2>
 <h3>Organised by: <%= @event.user.username %></h3>
 <p><%= @event.details %></p>
-<% if @event.attendees.length == 1 %>
+<% if @attendees.length == 1 %>
   <p>1 person is attending this event.</p>
 <% else %>
-  <p><%= @event.attendees.length %> people are attending this event.</p>
+  <p><%= @attendees.length %> people are attending this event.</p>
 <% end %>
 <% if @event.user_id == session[:user_id] %>
+  <% @attendees.each do |attendee| %>
+  <p><%= attendee.user.username %> - <a href="mailto:<%= attendee.user.email %>"><%= attendee.user.email %></a></p>
+  <% end %>
   <div class="row">
   <a class="column-2" href="/events/<%= @event.id %>/edit"><button class="big-btn">Edit this event</button></a>
   <form class="column-2" action="/events/<%= @event.id %>" method="post">
