@@ -50,6 +50,7 @@ form input, form textarea, form select {
 }
 .banded {
   border: 1px solid rgba(255, 255, 255, .2);
+  margin-bottom: 1rem;
 }
 .banded p:nth-child(odd) {
   background-color: rgba(255, 255, 255, .2);
