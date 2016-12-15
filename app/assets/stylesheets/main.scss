@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 html {
   min-height: 100%;
@@ -20,6 +21,15 @@ main {
 header {
   text-align: center;
 }
+a {
+  color: black;
+  padding: .1rem;
+  transition: background-color .3s;
+  font-size: 1.1rem;
+}
+a:hover {
+  background-color: rgba(255, 255, 255, .5);
+}
 .strike {
   text-decoration: line-through;
 }
@@ -30,6 +40,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
+  flex-wrap: wrap;
 }
 .column-2 {
   width: 47.5%;
