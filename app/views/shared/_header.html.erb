@@ -1,3 +1,15 @@
 <header>
   <h1>+<span class="strike">1</span><span class="cursive"> Me</span></h1>
+  <% if session[:user_id]%>
+  <div class="row">
+    <a href="/profile">Dashboard</a>
+    <a href="/events">Find Events</a>
+    <a href="/events/new">Create an Event</a>
+      <form action="/logout" method="post">
+        <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
+        <input type="hidden" name="_method" value="delete">
+        <button>Log Out</button>
+      </form>
+    </div>
+  <% end %>
 </header>

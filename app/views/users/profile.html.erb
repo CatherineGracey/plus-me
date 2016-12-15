@@ -1,12 +1,6 @@
 <main>
 <%= render 'shared/header' %>
 
-<form action="/logout" method="post">
-  <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
-  <input type="hidden" name="_method" value="delete">
-  <button>Log Out</button>
-</form>
-
 <h2>Events you are organising</h2>
 <div class="banded">
   <% if @user.events.length > 0 %>
