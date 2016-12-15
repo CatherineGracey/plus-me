@@ -16,7 +16,9 @@
 <h2>Events you are attending</h2>
 <div class="banded">
 <% if @user.attendees.length > 0 %>
-    <p>Your events should populate here.</p>
+  <% @user.attendees.each do |attending| %>
+  <p><a href="/events/<%= attending.event.id%>"><%= attending.event.title %> on <%= attending.event.start_time.day %> <%= attending.event.start_time.month %> <%= attending.event.start_time.year %></a></p>
+  <% end %>
 <% else %>
   <p>You haven't joined any upcoming events yet.</p>
 <% end %>

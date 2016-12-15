@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   post '/events', to: 'events#create'
   get '/events', to: 'events#search'
   get '/events/:id', to: 'events#show'
+  get '/events/:id/edit', to: 'events#edit'
   put '/events/:id', to: 'events#update'
+
+  post '/attendees/:id', to: 'attendees#join'
+  delete 'attendees/:id', to: 'attendees#leave'
 
 end
