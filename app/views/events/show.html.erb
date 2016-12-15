@@ -2,7 +2,26 @@
 <%= render 'shared/header' %>
 <h2><%= @event.title %></h2>
 <h3>Organised by: <%= @event.user.username %></h3>
+<p>Where? <%= @event.where %></p>
 <p><%= @event.details %></p>
+<p>
+  This event begins at <%= @event.start_time %><% if @event.finish_time %> and ends at <%= @event.finish_time %><% end %>.
+</p>
+<% if @event.link %>
+  <p><a href="<%= @event.link%>"><%= @event.link%></a></p>
+<% end %>
+<% if @event.age_min || @event.age_max %>
+  <p>This event has an age restriction. Minimum age to attend: <%= @event.age_min || "none" %>. Maximum age to attend: <%= @event.age_max || "none" %>.
+<% end %>
+<% if @event.gender %>
+  <p>This event is restricted to <%= @event.gender %> attendees.</p>
+<% end %>
+<% if @event.language %>
+  <p>This event will be held in <%= @event.language %>.</p>
+<% end %>
+<% if @event.group_min || @event.group_max %>
+  <p>This event has a size restriction. Minimum number of attendees to go ahead: <%= @event.group_min || "none" %>. Maximum number of attendees: <%= @event.group_max || "none" %>.
+<% end %>
 <% if @attendees.length == 1 %>
   <p>1 person is attending this event.</p>
 <% else %>
@@ -34,17 +53,3 @@
   <% end %>
 <% end %>
 </main>
-
-t.string   "title"
-t.integer  "user_id"
-t.text     "details"
-t.datetime "start_time"
-t.datetime "finish_time"
-t.integer  "age_min"
-t.integer  "age_max"
-t.string   "gender"
-t.string   "where"
-t.integer  "group_max"
-t.integer  "group_min"
-t.string   "language"
-t.text     "link"
