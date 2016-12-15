@@ -3,21 +3,26 @@
 <h2><%= @event.title %></h2>
 <h3>Organised by: <%= @event.user.username %></h3>
 <p><%= @event.details %></p>
+<% if @event.attendees.length == 1 %>
+  <p>1 person is attending this event.</p>
+<% else %>
+  <p><%= @event.attendees.length %> people are attending this event.</p>
+<% end %>
 <% if @event.user_id == session[:user_id] %>
   <div class="row">
   <a class="column-2" href="/events/<%= @event.id %>/edit"><button class="big-btn">Edit this event</button></a>
-  <form class="column-2" action="/events/<%= @event.id %>/delete" method="post">
+  <form class="column-2" action="/events/<%= @event.id %>" method="post">
     <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
     <input type="hidden" name="_method" value="delete">
     <button class="big-btn">Cancel this event</button>
   </form>
 <% else %>
-<% if @event.attendees.find_by(user_id: session[:user_id]) %>
-  <form action="/attendees/<%= @event.id %>" method="post">
-    <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
-    <input type="hidden" name="_method" value="delete">
-    <button class="big-btn">Leave this event</button>
-  </form>
+  <% if @event.attendees.find_by(user_id: session[:user_id]) %>
+    <form action="/attendees/<%= @event.id %>" method="post">
+      <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>
+      <input type="hidden" name="_method" value="delete">
+      <button class="big-btn">Leave this event</button>
+    </form>
   <% else %>
     <form action="/attendees/<%= @event.id %>" method="post">
       <%= hidden_field_tag( :authenticity_token, form_authenticity_token ) %>

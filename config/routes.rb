@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/events/:id', to: 'events#show'
   get '/events/:id/edit', to: 'events#edit'
   put '/events/:id', to: 'events#update'
+  delete '/events/:id', to: 'events#destroy'
 
   post '/attendees/:id', to: 'attendees#join'
   delete 'attendees/:id', to: 'attendees#leave'

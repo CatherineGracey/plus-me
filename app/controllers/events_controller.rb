@@ -68,4 +68,17 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def destroy
+    event = Event.find(params[:id])
+    if event.user_id == session[:user_id]
+      event.attendees.each do |a|
+        a.destroy
+      end
+      event.destroy
+      redirect_to '/profile'
+    else
+      redirect_to "/events/#{event.id}"
+    end
+  end
+
 end
